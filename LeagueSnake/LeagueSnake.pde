@@ -6,14 +6,16 @@
 class Segment {
 
 //Add x and y member variables. They will hold the corner location of each segment of the snake.
-int x;
-int y;
+ int x;
+ int y;
 // Add a constructor with parameters to initialize each variable.
-public initalize(int x; int y){
-  
+
+Coords myCoords();
 
 
+   
 }
+
 
 
 //*
@@ -32,6 +34,8 @@ public initalize(int x; int y){
 
 void setup() {
 
+  myCoords = new Coords(x,y);
+  
 }
 
 void dropFood() {
@@ -124,5 +128,4 @@ void checkBoundaries() {
 void eat() {
   //When the snake eats the food, its tail should grow and more food appear
 
-}
 }
