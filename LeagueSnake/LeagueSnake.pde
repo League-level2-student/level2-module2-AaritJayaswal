@@ -6,12 +6,13 @@
 class Segment {
 
 //Add x and y member variables. They will hold the corner location of each segment of the snake.
- int x;
- int y;
+ 
+ float x;
+float y;
+
+ 
 // Add a constructor with parameters to initialize each variable.
-
-Coords myCoords();
-
+class Coords{
 
    
 }
@@ -23,6 +24,9 @@ Coords myCoords();
 // All the game variables that will be shared by the game methods are here
 //*
 
+float FoodLocationX;
+float FoodLocationY;
+
 
 
 
@@ -33,13 +37,16 @@ Coords myCoords();
 //*
 
 void setup() {
-
-  myCoords = new Coords(x,y);
+size(500,500);
+ 
   
 }
 
 void dropFood() {
   //Set the food in a new random location
+     
+    FoodLocationX = random(width);
+    FoodLocationY = random(height);
     
 }
 
@@ -56,11 +63,15 @@ void draw() {
 
 void drawFood() {
   //Draw the food
-  
+ fill(255,0,0);
+  ellipse(FoodLocationX,FoodLocationY,10,10);
 }
 
 void drawSnake() {
   //Draw the head of the snake followed by its tail
+ fill(0,255,0);
+ square(x,y,15);
+
 }
 
 
@@ -71,7 +82,8 @@ void drawSnake() {
 
 void drawTail() {
   //Draw each segment of the tail 
-
+fill(0,255,0);
+square(x,y,15);
 }
 
 void manageTail() {
@@ -128,4 +140,5 @@ void checkBoundaries() {
 void eat() {
   //When the snake eats the food, its tail should grow and more food appear
 
+}
 }
