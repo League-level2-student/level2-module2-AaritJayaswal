@@ -12,8 +12,10 @@ float y;
 
  
 // Add a constructor with parameters to initialize each variable.
-class Coords{
+ Segment(float x, float y){
 
+   this.x=x;
+   this.y=y;
    
 }
 
