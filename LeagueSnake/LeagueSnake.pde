@@ -16,22 +16,17 @@ float y;
 
    this.x=x;
    this.y=y;
-   
+ } 
 }
-
-
 
 //*
 // ***** GAME VARIABLES *****
 // All the game variables that will be shared by the game methods are here
 //*
 
-float FoodLocationX;
-float FoodLocationY;
-
-
-
-
+ Segment head;
+float foodX;
+float foodY;
 
 //*
 // ***** SETUP METHODS *****
@@ -41,14 +36,16 @@ float FoodLocationY;
 void setup() {
 size(500,500);
  
-  
+  head = new Segment(20,40);
+frameRate(20);
+dropFood();
+
 }
 
 void dropFood() {
   //Set the food in a new random location
-     
-    FoodLocationX = random(width);
-    FoodLocationY = random(height);
+     foodX = ((int)random(50)*10);
+     foodY = ((int)random(50)*10);
     
 }
 
@@ -61,18 +58,22 @@ void dropFood() {
 
 void draw() {
   
+  background(0,0,0);
+  drawFood();
+  drawSnake();
+  
 }
 
 void drawFood() {
   //Draw the food
- fill(255,0,0);
-  ellipse(FoodLocationX,FoodLocationY,10,10);
+fill(255,0,0);
+square(foodX,foodY,10);
 }
 
 void drawSnake() {
   //Draw the head of the snake followed by its tail
  fill(0,255,0);
- square(x,y,15);
+ square(60,80,10);
 
 }
 
@@ -84,8 +85,7 @@ void drawSnake() {
 
 void drawTail() {
   //Draw each segment of the tail 
-fill(0,255,0);
-square(x,y,15);
+
 }
 
 void manageTail() {
@@ -142,5 +142,4 @@ void checkBoundaries() {
 void eat() {
   //When the snake eats the food, its tail should grow and more food appear
 
-}
 }
